@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Attention Visualization</title>
+  </head>
+  <body>
+
+    <header>
+      <div class="title">
+        <img src="svg/search.svg" alt="icon">
+        <h1>感情分析くん</h1>
+      </div>
+      <div class="model">
+        <p>Powered by Microsoft DeBERTa-V3</p>
+      </div>
+    </header>
+
+    <div class="container">
+
+      <div class="upper">
+        <div class="text-select">
+          <p>テキストを選択</p>
+          <input type="number" id="number-input" min="0" max="99" placeholder="0-99">
+        </div>
+        <div class="result">
+          <div id="initial">
+            <p>No text selected</p>
+          </div>
+          <div class="indicator">
+            <p>判定結果</p>
+            <div class="judge">
+              <img src="#" alt="icon" id="emotion">
+              <p id="pred"></p>
+            </div>
+          </div>
+          <div class="prob">
+            <p>予測確率</p>
+            <p id="prob"></p>
+          </div>
+          <div class="true-label">
+            <p>正解ラベル</p>
+            <p id="true-label"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-container">
+        <div class="description">
+          <div class="description-original">
+            <p>現在選択中の文章</p>
+            <img src="svg/arrow.svg" alt="arrow">
+          </div>
+          <div class="description-visualized">
+            <p>可視化</p>
+            <img src="svg/arrow.svg" alt="arrow">
+          </div>
+        </div>
+        <div class="text">
+          <div id="original-text"></div>
+          <div id="visualized"></div>
+        </div>
+      </div>
+      <div class="note">
+        <ul>
+          <li>Attentionスコアは入力シーケンスのトークンの最大値で規格化されています。</li>
+          <li>[CLS]トークンに対するスコアを用いています。</li>
+          <li>前処理の影響で表記が一部が乱れています。</li>
+        </ul>
+      </div>
+      <footer>
+        <p><small>Copyright</small></p>
+      </footer>
+    </div>
+
+  </body>
+</html>
+
+
+
+
